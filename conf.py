@@ -1,64 +1,43 @@
-# Configuration file for the Sphinx documentation builder.
+# conf.py — My5 TV Guide Center (No footer at all)
 
 import os
 import sys
-
-# -- Path setup --------------------------------------------------------------
-
-# sys.path.insert(0, os.path.abspath('../src'))
+from datetime import datetime
 
 # -- Project information -----------------------------------------------------
-
-project = 'Set Up My5 TV'
-copyright = '2025, My5'
-author = 'My5 Support Team'
-release = '1.0.0'
+project = "My5 TV Guide Center (USA)"
+author = "My5 Support Team"
+copyright = ""   # <-- khali string, kuch bhi show nahi hoga
+release = "1.0.0"
 
 # -- General configuration ---------------------------------------------------
-
 extensions = [
-    "sphinx_rtd_theme",   # Use Read the Docs theme
+    "sphinx_rtd_theme",
 ]
 
-# Allow raw HTML in RST for buttons/design
-rst_prolog = """
-.. raw:: html
+templates_path = ["_templates"]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
-   <style>
-      /* Custom Button Hover Effects */
-      a:hover {
-         opacity: 0.85;
-      }
-   </style>
-"""
-
-templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+language = "en"
 
 # -- Options for HTML output -------------------------------------------------
+html_theme = "sphinx_rtd_theme"
+html_title = "Activate My5 TV – my5.tv/activate (USA Guide)"
+html_short_title = "My5 TV – Activate"
+html_favicon = "favicon.ico"
+html_static_path = ["_static"]
 
-html_theme = 'sphinx_rtd_theme'
-html_title = "How to Get Started with My5 TV – Complete Guide"
-html_short_title = "My5 TV Setup Guide"
-html_favicon = 'favicon.ico'  # Place favicon.ico inside _static
-
-# Hide "View page source"
+# Remove default footer & source links
 html_show_sourcelink = False
+html_show_sphinx = False   # “Built with Sphinx…” hata dega
 
-# Allow unsafe raw HTML in content
-suppress_warnings = ["misc.highlighting_failure"]
-
-# Theme customization
 html_theme_options = {
-    'collapse_navigation': False,
-    'sticky_navigation': True,
-    'navigation_depth': 3,
-    'style_external_links': True,
+    "collapse_navigation": False,
+    "sticky_navigation": True,
+    "navigation_depth": 3,
+    "style_external_links": True,
 }
 
-# Static files (CSS/JS/images)
-html_static_path = ['_static']
-
-# Custom CSS for My5 TV branding
+# Custom CSS for branding
 def setup(app):
-    app.add_css_file('custom.css')
+    app.add_css_file("custom.css")
