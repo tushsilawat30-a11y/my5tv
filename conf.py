@@ -1,4 +1,4 @@
-# conf.py — My5 TV Guide Center (No footer at all)
+# conf.py — My5 TV Guide Center (USA)
 
 import os
 import sys
@@ -7,12 +7,11 @@ from datetime import datetime
 # -- Project information -----------------------------------------------------
 project = "My5 TV Guide Center (USA)"
 author = "My5 Support Team"
+copyright = ""   # Blank footer
 release = "1.0.0"
 
 # -- General configuration ---------------------------------------------------
-extensions = [
-    "sphinx_rtd_theme",
-]
+extensions = ["sphinx_rtd_theme"]
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
@@ -26,9 +25,9 @@ html_short_title = "My5 TV – Activate"
 html_favicon = "favicon.ico"
 html_static_path = ["_static"]
 
-# Remove default footer & source links
+# Hide defaults
 html_show_sourcelink = False
-html_show_sphinx = False   # “Built with Sphinx…” hata dega
+html_show_sphinx = False   # removes "Built with Sphinx"
 
 html_theme_options = {
     "collapse_navigation": False,
@@ -37,6 +36,6 @@ html_theme_options = {
     "style_external_links": True,
 }
 
-# Custom CSS for branding
+# Add custom CSS
 def setup(app):
     app.add_css_file("custom.css")
