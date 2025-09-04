@@ -1,55 +1,69 @@
-# Configuration file for the Sphinx documentation builder.
+# conf.py — My5 TV (USA) Guide Center
 
 import os
 import sys
+from datetime import datetime
 
 # -- Path setup --------------------------------------------------------------
-
-# Add any paths to sys.path if your modules are outside the root
 # sys.path.insert(0, os.path.abspath('../src'))
 
 # -- Project information -----------------------------------------------------
-
-
-project = 'Set Up My5 TV'
-copyright = '2025, My5'
-author = 'My5 Support Team'
-
-# The full version, including alpha/beta/rc tags
-release = '1.0.0'
+project = "My5 TV Guide Center (USA)"
+author = "My5 Support Team"
+copyright = f"{datetime.now():%Y}, My5"
+release = "1.0.0"
 
 # -- General configuration ---------------------------------------------------
+extensions = [
+    "sphinx_rtd_theme",   # Read the Docs theme
+    # "sphinx_sitemap",   # <-- Optional: enable after setting html_baseurl below
+]
 
-# Sphinx extensions (leave blank or add as needed)
-extensions = []
+# Keep warnings cleaner when using raw HTML in .rst
+suppress_warnings = ["misc.highlighting_failure"]
 
-# Allow reStructuredText raw HTML
-raw_enabled = True
+# If you ever want Markdown, add "myst_parser" and allow .md in source_suffix.
+# source_suffix = {".rst": "restructuredtext"}
 
-# Templates and patterns to ignore
-templates_path = ['_templates']  # Uncomment if using custom templates
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+templates_path = ["_templates"]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
-# -- Options for HTML output -------------------------------------------------
+# Language/locale
+language = "en"
 
-# Theme (you can switch to 'sphinx_rtd_theme' or another as needed)
-html_theme = 'sphinx_rtd_theme'
+# -- HTML output -------------------------------------------------------------
+html_theme = "sphinx_rtd_theme"
+html_title = "Activate My5 TV – my5.tv/activate (USA Guide)"
+html_short_title = "My5 TV – Activate"
+html_favicon = "favicon.ico"  # place inside _static/
+html_static_path = ["_static"]
 
-# Basic page info
-html_title = "How to Get Started with My5 TV – Complete Guide""
-html_short_title = "My5 TV Setup Guide"
-html_favicon = 'favicon.ico'  # Place the file in the _static or root folder
+# Optional: if you add a logo, put it in _static and uncomment:
+# html_logo = "_static/my5-logo.png"
 
-# Hide "View page source"
+# Hide “View page source”
 html_show_sourcelink = False
 
-# Allow unsafe raw HTML in .rst files
-html_allow_unsafe = True
-
-# Theme customization
+# Theme options (tidy, sticky nav, deeper TOC)
 html_theme_options = {
-    'show_powered_by': False,
+    "collapse_navigation": False,
+    "sticky_navigation": True,
+    "navigation_depth": 3,
+    "style_external_links": True,
+    # "logo_only": True,  # if you want only logo in header
 }
 
-# Static assets (uncomment if you have them)
-# html_static_path = ['_static']
+# ---- SEO (optional) --------------------------------------------------------
+# If you enable sphinx_sitemap, set your canonical base URL:
+# html_baseurl = "https://www.yoursite.com/my5tv-activate/"  # <-- update this
+
+# -- Custom assets -----------------------------------------------------------
+def setup(app):
+    # Custom CSS for My5 branding (red/black/white)
+    app.add_css_file("custom.css")
+    # If you have custom JS, add it similarly:
+    # app.add_js_file("custom.js")
+
+# -- HTML context / extra ----------------------------------------------------
+# Ensure Sphinx finds your custom layout at _templates/custom_layout.html
+# (Your template extends "!layout.html" and injects SEO meta tags.)
