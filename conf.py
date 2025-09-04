@@ -18,7 +18,7 @@ release = '1.0.0'
 # -- General configuration ---------------------------------------------------
 
 extensions = [
-    "sphinx_rtd_theme",   # Theme extension
+    #"sphinx_rtd_theme",   # Theme extension
 ]
 
 # Allow raw HTML in RST
