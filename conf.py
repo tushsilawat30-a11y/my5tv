@@ -33,7 +33,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # -- Options for HTML output -------------------------------------------------
 
 # Theme (you can switch to 'sphinx_rtd_theme' or another as needed)
-# html_theme = 'sphinx_rtd_theme'
+html_theme = 'sphinx_rtd_theme'
 
 # Basic page info
 html_title = "How to Get Started with My5 TV – Complete Guide""
