@@ -7,7 +7,6 @@ from datetime import datetime
 # -- Project information -----------------------------------------------------
 project = "My5 TV Guide Center (USA)"
 author = "My5 Support Team"
-copyright = ""   # <-- khali string, kuch bhi show nahi hoga
 release = "1.0.0"
 
 # -- General configuration ---------------------------------------------------
