@@ -15,8 +15,8 @@ release = "1.0.0"
 
 # -- General configuration ---------------------------------------------------
 extensions = [
-    "sphinx_rtd_theme",   # Read the Docs theme
-    # "sphinx_sitemap",   # <-- Optional: enable after setting html_baseurl below
+    # Hide default copyright + footer text
+html_show_sphinx = False
 ]
 
 # Keep warnings cleaner when using raw HTML in .rst
